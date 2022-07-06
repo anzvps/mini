@@ -203,6 +203,9 @@ read -rp "Input ur domain : " -e pp
         Then a random domain will be created"
     else
         echo "$pp" > /root/scdomain
+	echo "$pp" > /etc/xray/scdomain
+	echo "$pp" > /etc/xray/domain
+	echo "$pp" > /etc/v2ray/domain
 	echo $pp > /root/domain
         echo "IP=$pp" > /var/lib/scrz-prem/ipvps.conf
     fi
