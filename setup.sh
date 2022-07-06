@@ -77,6 +77,9 @@ if [[ "$hst" != "$dart" ]]; then
 echo "$localip $(hostname)" >> /etc/hosts
 fi
 
+mkdir -f /etc/xray
+
+
 echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
 sleep 1
 echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
