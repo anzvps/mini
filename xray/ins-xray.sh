@@ -71,26 +71,26 @@ date
 echo ""
 domain=$(cat /root/domain)
 sleep 1
-mkdir -p /etc/xray > /dev/null 2>&1
+mkdir -p /etc/xray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
-apt install iptables iptables-persistent -y >/dev/null 2>&1
+apt install iptables iptables-persistent -y
 sleep 1
 echo -e "[ ${green}INFO$NC ] Setting ntpdate"
-ntpdate pool.ntp.org >/dev/null 2>&1
-timedatectl set-ntp true >/dev/null 2>&1
+ntpdate pool.ntp.org 
+timedatectl set-ntp true
 sleep 1
 echo -e "[ ${green}INFO$NC ] Enable chronyd"
-systemctl enable chronyd >/dev/null 2>&1
-systemctl restart chronyd >/dev/null 2>&1
+systemctl enable chronyd
+systemctl restart chronyd
 sleep 1
 echo -e "[ ${green}INFO$NC ] Enable chrony"
-systemctl enable chrony >/dev/null 2>&1
-systemctl restart chrony >/dev/null 2>&1
-timedatectl set-timezone Asia/Jakarta >/dev/null 2>&1
+systemctl enable chrony
+systemctl restart chrony
+timedatectl set-timezone Asia/Jakarta
 sleep 1
 echo -e "[ ${green}INFO$NC ] Setting chrony tracking"
-chronyc sourcestats -v >/dev/null 2>&1
-chronyc tracking -v >/dev/null 2>&1
+chronyc sourcestats -v
+chronyc tracking -v
 echo -e "[ ${green}INFO$NC ] Setting dll"
 apt clean all && apt update
 apt install curl socat xz-utils wget apt-transport-https gnupg gnupg2 gnupg1 dnsutils lsb-release -y 
@@ -548,11 +548,11 @@ echo -e "$yell[SERVICE]$NC Restart All service"
 systemctl daemon-reload
 sleep 1
 echo -e "[ ${green}ok${NC} ] Enable & restart xray "
-systemctl enable xray >/dev/null 2>&1
-systemctl restart xray >/dev/null 2>&1
-systemctl restart nginx >/dev/null 2>&1
-systemctl enable runn >/dev/null 2>&1
-systemctl restart runn >/dev/null 2>&1
+systemctl enable xray
+systemctl restart xray
+systemctl restart nginx
+systemctl enable runn
+systemctl restart runn
 
 sleep 1
 wget -q -O /usr/bin/add-ws "https://raw.githubusercontent.com/anzvps/mini/main/xray/add-ws.sh" && chmod +x /usr/bin/add-ws
@@ -570,9 +570,9 @@ yellow "xray/Vless"
 
 
 
-mv /root/domain /etc/xray/ >/dev/null 2>&1
+mv /root/domain /etc/xray/ 
 if [ -f /root/scdomain ];then
 rm /root/scdomain > /dev/null 2>&1
 fi
 clear
-rm -f ins-xray.sh >/dev/null 2>&1
+rm -f ins-xray.sh  
